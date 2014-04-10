@@ -1,0 +1,125 @@
+<!-- 
+
+Au CFA Bagnolet, avril 2014
+
+Petit jeux de mémoire avec API Google Translate
+
+-->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+#rouge {
+	width:100px; height:100px; background-color:brown; float:left;
+}
+
+#bleu {
+	width:100px; height:100px; background-color:darkblue; float:left;
+}
+
+#vert {
+	width:100px; height:100px; background-color:darkgreen; float:left;
+}
+
+#orange {
+	width:100px; height:100px; background-color:orange; float:left;
+}
+
+iframe {
+	display:none;
+}
+</style>
+<script src="jquery-2.1.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+	$('#rouge','#bleu','#bravo').attr('src', 'http://translate.google.com/translate_tts?ie=UTF-8&q=&tl=fr&total=1&idx=0&textlen=5&prev=input');
+	
+    $('#rouge').click(function(){
+		$('#chat').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=chat&tl=fr&total=1&idx=0&textlen=5&prev=input');
+		$(this).attr('class', 'clicked');
+		$('#vert').attr('class', '');
+		$('#orange').attr('class', '');
+				
+			if ( $('#bleu').hasClass('clicked') ) {		
+				setTimeout(function(){
+					$('#bravo').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=bravo&tl=fr&total=1&idx=0&textlen=5&prev=input');
+					$('#bleu').hide();
+					$('#rouge').hide();
+				}, 1000);
+				
+			}
+	});
+	
+    $('#bleu').click(function(){
+		$('#cat').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=cat&tl=en-br&total=1&idx=0&textlen=5&prev=input');
+		$(this).attr('class', 'clicked');
+		$('#vert').attr('class', '');
+		$('#orange').attr('class', '');	
+			
+		if ( $('#rouge').hasClass('clicked') ) {
+			setTimeout(function(){
+				$('#bravo').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=bravo&tl=fr&total=1&idx=0&textlen=5&prev=input');
+				$('#rouge').hide();
+				$('#bleu').hide();
+			}, 1000);
+		}
+		
+	});
+
+    $('#vert').click(function(){
+		$('#cat').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=chien&tl=fr&total=1&idx=0&textlen=5&prev=input');
+		$(this).attr('class', 'clicked');
+		$('#rouge').attr('class', '');
+		$('#bleu').attr('class', '');
+		
+		if ( $('#orange').hasClass('clicked') ) {
+			setTimeout(function(){
+				$('#bravo').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=bravo&tl=fr&total=1&idx=0&textlen=5&prev=input');
+				$('#orange').hide();
+				$('#vert').hide();
+			}, 1000);
+		}
+		
+	});
+
+    $('#orange').click(function(){
+		$('#cat').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=dog&tl=en-br&total=1&idx=0&textlen=5&prev=input');
+		$(this).attr('class', 'clicked');
+		$('#rouge').attr('class', '');
+		$('#bleu').attr('class', '');
+				
+		if ( $('#vert').hasClass('clicked') ) {
+			setTimeout(function(){
+				$('#bravo').attr('src','http://translate.google.com/translate_tts?ie=UTF-8&q=bravo&tl=fr&total=1&idx=0&textlen=5&prev=input');
+				$('#vert').hide();
+				$('#orange').hide();
+			}, 1000);
+			
+		}
+		
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+
+<div id="rouge"></div>
+<div id="bleu"></div>
+<div id="vert"></div>
+<div id="orange"></div>
+
+<div id="monAudio">
+	<iframe id="chat"></iframe>
+    <iframe id="cat"></iframe>
+    <iframe id="bravo"></iframe>
+</div>
+
+</body>
+</html>
