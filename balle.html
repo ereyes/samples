@@ -3,45 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
+
 <style>
-#balle { 
-	width:50px;
-	height:50px;
-	position:absolute;
-	background-color:chartreuse;
-	border-radius:50px;
-}
+	#texte { position:absolute; width:100px; height:100px; border-radius:100px; background-color:tomato;  }
 </style>
+
 <script>
-var animation;
-var posX = 50;
-var posY = 50;
-var vitesse = 5;
+
+var keyframe;
+var y = 0;
+var x = 0;
 var dX = 1;
 var dY = -1;
+var vitesse = 5;
 
 function demarrer(){
-	animation = setInterval(animer,10);
+
+	keyframe = window.setInterval(animer, 10);
+
 }
 
 function animer(){
-	posX = posX + 1 * vitesse * dX;
-	posY = posY + 1 * vitesse * dY;
-	document.getElementById('balle').style.left = posX + 'px';
-	document.getElementById('balle').style.top = posY + 'px';
 	
-	if((posX > window.innerWidth) || (posX < 0)){
+	y = y + 1 * dY * vitesse;
+	x = x + 1 * dX * vitesse;
+	
+	document.getElementById('texte').style.top = y + 'px';
+	document.getElementById('texte').style.left = x + 'px';
+	
+	if( (x > window.innerWidth) || (x < 0) ){
 		dX = -dX;
+		document.getElementById('texte').style.backgroundColor = 'rgb('+ Math.ceil(Math.random()*255) + ','+ Math.ceil(Math.random()*255) + ','+ Math.ceil(Math.random()*255) + ')';
 	}
-	else if((posY > window.innerHeight) || (posY < 0)){
+	else if( (y > window.innerHeight) || (y < 0) ){
 		dY = -dY;
-	}
+		document.getElementById('texte').style.backgroundColor = 'rgb('+ Math.ceil(Math.random()*255) + ','+ Math.ceil(Math.random()*255) + ','+ Math.ceil(Math.random()*255) + ')';
+	}	
+	
 }
+
+function arreter(){
+	clearInterval(keyframe);
+}
+
 </script>
 </head>
 
 <body>
-<button onClick="demarrer();">Start</button>
-<div id="balle"></div>
+	
+    <button onClick="demarrer()">Start</button>
+    <button onClick="arreter()">Stop</button>
+	<span id="texte"></span>
+
 </body>
 </html>

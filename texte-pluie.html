@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+<style>
+	#texte { position:absolute; }
+</style>
+
+<script>
+
+var keyframe;
+var y = 0;
+var x = 0;
+
+function demarrer(){
+
+	keyframe = window.setInterval(animer, 10);
+
+}
+
+function animer(){
+	
+	y++;
+	document.getElementById('texte').style.top = y + 'px';
+	document.getElementById('texte').style.left = x + 'px';
+	
+	if( y > 200 ){
+		y = 0;
+		x = Math.random() * window.innerWidth;
+	}
+
+}
+
+function arreter(){
+	clearInterval(keyframe);
+}
+
+</script>
+</head>
+
+<body>
+	
+    <button onClick="demarrer()">Start</button>
+    <button onClick="arreter()">Stop</button>
+	<span id="texte">Hello Dimi</span>
+
+</body>
+</html>

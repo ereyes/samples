@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+<style>
+	#texte { position:absolute; width:100px; height:100px; border-radius:100px; background-color:tomato;  }
+</style>
+
+<script>
+
+var keyframe;
+
+var centreX = window.innerWidth/3;
+var centreY = window.innerHeight/3;
+var rayon = 80;
+var angle = 0;
+
+function demarrer(){
+
+	keyframe = window.setInterval(animer, 150);
+
+}
+
+function animer(){
+	
+	angle++;
+	
+	document.getElementById('texte').style.top = centreY + Math.sin(angle) * rayon + 'px';
+	document.getElementById('texte').style.left = centreX + Math.cos(angle) * rayon + 'px';
+	
+}
+
+function arreter(){
+	clearInterval(keyframe);
+}
+
+</script>
+</head>
+
+<body>
+	
+    <button onClick="demarrer()">Start</button>
+    <button onClick="arreter()">Stop</button>
+	<span id="texte"></span>
+
+</body>
+</html>
