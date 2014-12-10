@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+p { position:relative;}
+</style>
+<script>
+
+
+window.onload = function(){
+
+var mesMots = ['MX', 'FR', 'DE', 'IT'];
+
+for(var i = 0; i < mesMots.length; i++){
+
+	var mot = {
+		texte:mesMots[i],
+		numero : Math.random()*100,
+		show:function(){
+			var elem = document.createElement('p');
+			var txt = document.createTextNode(this.texte + this.numero);
+			elem.appendChild(txt);
+			document.getElementById('fenetre').appendChild(elem);
+		}
+	};
+	
+	mot.show();
+}
+
+
+
+}
+</script>
+</head>
+
+<body>
+<div id="fenetre"></div>
+</body>
+</html>

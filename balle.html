@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+#balle { 
+	width:50px;
+	height:50px;
+	position:absolute;
+	background-color:chartreuse;
+	border-radius:50px;
+}
+</style>
+<script>
+var animation;
+var posX = 50;
+var posY = 50;
+var vitesse = 5;
+var dX = 1;
+var dY = -1;
+
+function demarrer(){
+	animation = setInterval(animer,10);
+}
+
+function animer(){
+	posX = posX + 1 * vitesse * dX;
+	posY = posY + 1 * vitesse * dY;
+	document.getElementById('balle').style.left = posX + 'px';
+	document.getElementById('balle').style.top = posY + 'px';
+	
+	if((posX > window.innerWidth) || (posX < 0)){
+		dX = -dX;
+	}
+	else if((posY > window.innerHeight) || (posY < 0)){
+		dY = -dY;
+	}
+}
+</script>
+</head>
+
+<body>
+<button onClick="demarrer();">Start</button>
+<div id="balle"></div>
+</body>
+</html>

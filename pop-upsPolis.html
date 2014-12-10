@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+.rouge { color:tomato; font-weight:bold; }
+.super { color:chocolate; font-weight:bold; font-size:400%; }
+</style>
+<script>
+
+function accueil() {
+
+	var nom = prompt('Ton nom, stp...');
+	
+	var reponse = confirm('Tu confirmes que ton nom est bien... ' + nom + ' ?');
+	
+	if( reponse == true){
+		document.getElementById('texte').innerHTML = nom;
+		
+		if (nom == 'pierre') {
+			document.getElementById('texte').innerHTML = '<span class="rouge">' + nom + '</span>';
+		} 
+		else if (nom == 'eve') {
+			document.getElementById('texte').innerHTML = '<span class="super">' + nom + '</span>';
+		} 
+	} else {
+		accueil();
+	}
+
+}
+</script>
+</head>
+
+<body>
+	<button onClick="accueil();">Accueil</button>
+	<div id="texte"></div>
+</body>
+</html>
