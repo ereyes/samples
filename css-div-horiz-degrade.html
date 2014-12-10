@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+#space { width:100%; height:100%; position:absolute; top:0; left:0; }
+.bar {
+	height:100%;
+	position:relative;
+	float:left;
+	top:0; left:0;
+}
+
+</style>
+<script>
+
+window.onload = function(){
+	
+	var dim = 100;
+	var barres = 1;
+	var sat = 70;
+	for(var i = 0; i < dim; i++){
+		document.getElementById('space').innerHTML += '<div class="bar" style="background-color:hsl('+
+																				i*0.3*10+','+ 
+																				sat+'%,'+
+																				50+'%); width:'+ barres +'%;"></div>';
+
+	}
+	
+}
+
+</script>
+</head>
+
+<body>
+<div id="space"></div>
+</body>
+</html>

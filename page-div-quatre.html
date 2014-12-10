@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+#fenetre {
+	width:100%;
+	height:100%;
+	border:1px solid gray;
+}
+#v01 {
+	width:50%;
+	height:50%;
+	position:absolute; top:0; left:0;
+	background-color:chartreuse;
+	float:left;
+}
+#v02 {
+	width:50%;
+	height:50%;
+	position:absolute; top:0; left:50%;
+	background-color:chocolate;
+	float:left;
+}
+#v03 {
+	width:50%;
+	height:50%;
+	position:absolute; top:50%; left:0;
+	background-color:tomato;
+	float:left;
+}
+#v04 {
+	width:50%;
+	height:50%;
+	position:absolute; top:50%; left:50%;
+	background-color:mintcream;
+	float:left;
+}
+</style>
+
+<script>
+
+function salut(message){
+	alert(message);
+}
+
+
+function agrandir(vis, inv01, inv02, inv03){
+	document.getElementById(vis).style.width = '100%';
+	document.getElementById(vis).style.height = '100%';
+	document.getElementById(vis).style.top = '0';
+	document.getElementById(vis).style.left = '0';
+	document.getElementById(inv01).style.display = 'none';
+	document.getElementById(inv02).style.display = 'none';
+	document.getElementById(inv03).style.display = 'none';
+}
+
+function reduire(){
+	document.getElementById('v01').style.width = '50%';
+	document.getElementById('v01').style.height = '50%';
+	document.getElementById('v02').style.display = 'block';
+	document.getElementById('v03').style.display = 'block';
+	document.getElementById('v04').style.display = 'block';
+}
+
+</script>
+
+</head>
+
+<body>
+	<div id="fenetre">
+    	<div id="v01" onClick="agrandir('v01', 'v02', 'v03', 'v04');">
+        	<a href="fenetre.html">Fermer la vignette</a>
+            <button onClick="salut('Bonjour LSM');">Salut</button>
+        </div>
+        <div id="v02" onClick="agrandir('v02', 'v01', 'v03', 'v04');">
+        	<a href="fenetre.html">Fermer la vignette</a>
+            <button onClick="salut('Hello LSM');">Hello</button>
+        </div>
+        <div id="v03" onClick="agrandir('v03', 'v01', 'v02', 'v04');">
+        	<a href="fenetre.html">Fermer la vignette</a>
+            <button onClick="salut('Hola LSM');">Hola</button>
+        </div>
+        <div id="v04" onClick="agrandir('v04', 'v01', 'v03', 'v02');">
+        	<a href="fenetre.html">Fermer la vignette</a>
+            <button onClick="salut('Ciao LSM');">Ciao</button>
+        </div>
+    </div>
+</body>
+</html>
